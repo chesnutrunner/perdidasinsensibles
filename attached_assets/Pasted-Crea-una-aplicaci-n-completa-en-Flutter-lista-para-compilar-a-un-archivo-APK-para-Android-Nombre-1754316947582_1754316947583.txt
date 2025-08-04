@@ -1,0 +1,47 @@
+Crea una aplicación completa en Flutter, lista para compilar a un archivo APK para Android.  
+Nombre del proyecto: perdidas_insensibles_calculadora.
+
+### Objetivo:
+App de enfermería para calcular las pérdidas insensibles, con tres parámetros seleccionables mediante barras deslizantes: Peso, Temperatura y Horas de estancia.  
+Debe usar un diseño con tema oscuro y controles intuitivos.  
+
+### Requisitos de Interfaz:
+1. **Pantalla principal:**
+   - Fondo oscuro (theme dark).
+   - Texto superior centrado: "Calculadora de Pérdidas Insensibles".
+   - Tres Sliders:
+     - Peso: 25 a 150 kg (valor inicial 70 kg).
+     - Temperatura: 33 a 41 °C (valor inicial 36.5 °C).
+     - Horas de estancia: 1 a 24 h (valor inicial 7 h).
+   - Mostrar debajo de cada Slider su valor actual.
+   - Un botón grande centrado con estilo destacado que diga **"Calcular"**.
+   - Un botón más pequeño debajo que diga **"Reset"**.
+   - Un cuadro tipo Card donde se muestre el resultado en ml en texto grande y centrado.
+   - Un texto pequeño debajo que indique: "Valores recomendados: Temp normal 36.5 a 37.5°C".
+
+2. **Tema oscuro:**
+   - Fondo gris oscuro (#121212).
+   - Botón Calcular color verde (#00C853).
+   - Botón Reset gris (#424242).
+   - Texto blanco.
+
+### Lógica de Cálculo:
+- Fórmula:
+  Pérdidas Insensibles = Peso (kg) * Horas (h) * ConstanteTemp.
+- La constante por defecto es 0.5 cuando la temperatura está entre 36.5°C y 37.5°C.
+- Si la temperatura es mayor a 37.5°C:
+    ConstanteTemp = 0.5 + ((Temp - 37.5) * 0.1)
+- Si la temperatura es menor a 36.5°C:
+    ConstanteTemp = 0.5 - ((36.5 - Temp) * 0.1)
+- Resultado en mililitros.
+
+### Funcionalidad:
+- Botón Calcular: calcula y muestra el resultado con 2 decimales.
+- Botón Reset: restablece sliders a sus valores iniciales (Peso=70, Temp=36.5, Horas=7) y limpia el resultado.
+- Código comentado en español.
+
+
+Resultado = 70 * 24 * 0.55 = 924 ml  
+
+### Exportación:
+Generar el proyecto completo, con carpetas y archivos necesarios para compilarlo directamente en Codemagic o cualquier servicio de compilación en la nube, y producir un archivo APK instalable en Android.
